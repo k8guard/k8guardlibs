@@ -1,0 +1,22 @@
+package: github.com/k8guard/k8guardlibs
+import:
+- package: github.com/prometheus/client_golang
+  version: v0.8.0
+
+- package: k8s.io/client-go
+  version: =v2.0.0-alpha.1
+  subpackages:
+  - kubernetes
+  - pkg/api
+  - rest
+  - tools/clientcmd
+
+- package: github.com/caarlos0/env
+  version: 9474f19b515f52326c7d197d2d097caa7fc7485e
+  repo: https://github.com/caarlos0/env.git
+  vcs: git
+
+- package: github.com/Sirupsen/logrus
+  version: v0.11.2
+- package: github.com/Shopify/sarama
+  version: ~1.11.0
