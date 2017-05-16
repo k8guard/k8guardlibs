@@ -29,6 +29,8 @@ type Config struct {
 
 	// Action Specific Configs
 	CassandraHosts    []string `env:"K8GUARD_ACTION_CASSANDRA_HOSTS" envSeparator:","`
+	CassandraUsername string   `env:"K8GUARD_ACTION_CASSANDRA_USERNAME"`
+	CassandraPassword string   `env:"K8GUARD_ACTION_CASSANDRA_PASSWORD"`
 	CassandraKeyspace string   `env:"K8GUARD_ACTION_CASSANDRA_KEYSPACE"`
 	HipchatToken      string   `env:"K8GUARD_ACTION_HIPCHAT_TOKEN"`
 	HipchatRoomID     string   `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
