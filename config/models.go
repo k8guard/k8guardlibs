@@ -16,7 +16,7 @@ type Config struct {
 	ApprovedIngressSuffixes []string `env:"K8GUARD_APPROVED_INGRESS_SUFFIXES" envSeparator:","`
 	ApprovedImageSize       int64    `env:"K8GUARD_APPROVED_IMAGE_SIZE"`
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
-	IgnoredViolations       []string  `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
+	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
 	MemCachedHostname string   `env:"K8GUARD_MEMCACHED_HOSTNAME"`
 	LogLevel          string   `env:"K8GUARD_LOG_LEVEL"`
@@ -34,24 +34,24 @@ type Config struct {
 	HipchatRoomID     string   `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
 	HipchatBaseURL    string   `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
 	//Tag the Namespace owner in hipchat
-	HipchatTagNamespaceOwner bool     `env:"K8GUARD_ACTION_HIPCHAT_TAG_NAMESPACE_OWNER"`
+	HipchatTagNamespaceOwner bool `env:"K8GUARD_ACTION_HIPCHAT_TAG_NAMESPACE_OWNER"`
 
-	DurationBetweenChatNotifications time.Duration      `env:"K8GUARD_ACTION_DURATION_BETWEEN_CHAT_NOTIFICATIONS"`
-	DurationBetweenNotifyingAgain    time.Duration      `env:"K8GUARD_ACTION_DURATION_BETWEEN_NOTIFYING_AGAIN"`
+	DurationBetweenChatNotifications time.Duration `env:"K8GUARD_ACTION_DURATION_BETWEEN_CHAT_NOTIFICATIONS"`
+	DurationBetweenNotifyingAgain    time.Duration `env:"K8GUARD_ACTION_DURATION_BETWEEN_NOTIFYING_AGAIN"`
 	// This means after this duration without any new violation, we expect the violation to either be fixed or hard action to be done on it.
-	DurationViolationExpires time.Duration      `env:"K8GUARD_ACTION_DURATION_VIOLATION_EXPIRES"`
+	DurationViolationExpires time.Duration `env:"K8GUARD_ACTION_DURATION_VIOLATION_EXPIRES"`
 	// Parse messages from kafka and dont do anything
-	ActionDryRun bool     `env:"K8GUARD_ACTION_DRY_RUN"`
+	ActionDryRun bool `env:"K8GUARD_ACTION_DRY_RUN"`
 	// Parse messages, Notify but don't do any hard action such as scaling down or delete.
-	ActionSafeMode           bool     `env:"K8GUARD_ACTION_SAFE_MODE"`
-	WarningCountBeforeAction int      `env:"K8GUARD_ACTION_WARNING_COUNT_BEFORE_ACTION"`
-	SmtpServer               string   `env:"K8GUARD_ACTION_SMTP_SERVER"`
-	SmtpPort                 int      `env:"K8GUARD_ACTION_SMTP_PORT"`
-	SmtpUsername             string   `env:"K8GUARD_ACTION_SMTP_USERNAME"`
-	SmtpPassword             string   `env:"K8GUARD_ACTION_SMTP_PASSWORD"`
-	SmtpSendFrom             string   `env:"K8GUARD_ACTION_SMTP_SEND_FROM"`
+	ActionSafeMode           bool   `env:"K8GUARD_ACTION_SAFE_MODE"`
+	WarningCountBeforeAction int    `env:"K8GUARD_ACTION_WARNING_COUNT_BEFORE_ACTION"`
+	SmtpServer               string `env:"K8GUARD_ACTION_SMTP_SERVER"`
+	SmtpPort                 int    `env:"K8GUARD_ACTION_SMTP_PORT"`
+	SmtpUsername             string `env:"K8GUARD_ACTION_SMTP_USERNAME"`
+	SmtpPassword             string `env:"K8GUARD_ACTION_SMTP_PASSWORD"`
+	SmtpSendFrom             string `env:"K8GUARD_ACTION_SMTP_SEND_FROM"`
 	// Email to send to if namespaces doesn't have an emails annotation
-	SmtpFallbackSendTo string   `env:"K8GUARD_ACTION_SMTP_FALLBACK_SEND_TO"`
+	SmtpFallbackSendTo string `env:"K8GUARD_ACTION_SMTP_FALLBACK_SEND_TO"`
 	//Email the namespace owner, if false email fallback
-	SmtpSendToNamespaceOwner bool     `env:"K8GUARD_ACTION_SMTP_SEND_TO_NAMESAPCE_OWNER"`
+	SmtpSendToNamespaceOwner bool `env:"K8GUARD_ACTION_SMTP_SEND_TO_NAMESAPCE_OWNER"`
 }
