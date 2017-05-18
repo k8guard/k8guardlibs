@@ -1,5 +1,5 @@
-hash: 89078cc40dcbcb3a5529d4304713cf387bda66a23ebb0fd10c3fe11748e3035d
-updated: 2017-05-17T13:52:15.767118003-05:00
+hash: ea8f228a683a62cac82ed6b94d90cfec6b17e46ea5b4c28a4ef971265a7e7444
+updated: 2017-05-18T16:17:09.318694682-05:00
 imports:
 - name: cloud.google.com/go
   version: 3b1ae45394a234c385be014e9a488f2bb6eef821
@@ -90,7 +90,7 @@ imports:
 - name: github.com/pborman/uuid
   version: ca53cad383cad2479bbba7f7a1a05797ec1386e4
 - name: github.com/pierrec/lz4
-  version: 90290f74b1b4d9c097f0a3b3c7eba2ef3875c699
+  version: 88df27974e3644957507a1ca1866edc8e98d4897
 - name: github.com/pierrec/xxHash
   version: 5a004441f897722c627870a981d02b29924215fa
   subpackages:
@@ -105,7 +105,7 @@ imports:
   version: 1f30fe9094a513ce4c700b9a54458bbb0c96996c
 - name: github.com/Shopify/sarama
   version: 0fb560e5f7fbcaee2f75e3c34174320709f69944
-- name: github.com/Sirupsen/logrus
+- name: github.com/sirupsen/logrus
   version: c078b1e43f58d563c74cebe63c85789e76ddb627
 - name: github.com/spf13/pflag
   version: 5ccb023bc27df288a957c5e994cd44fd19619465
