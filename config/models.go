@@ -28,13 +28,15 @@ type Config struct {
 	KafkaEventTopic   string   `env:"K8GUARD_KAFKA_EVENT_TOPIC"`
 
 	// Action Specific Configs
-	CassandraHosts    []string `env:"K8GUARD_ACTION_CASSANDRA_HOSTS" envSeparator:","`
-	CassandraUsername string   `env:"K8GUARD_ACTION_CASSANDRA_USERNAME"`
-	CassandraPassword string   `env:"K8GUARD_ACTION_CASSANDRA_PASSWORD"`
-	CassandraKeyspace string   `env:"K8GUARD_ACTION_CASSANDRA_KEYSPACE"`
-	HipchatToken      string   `env:"K8GUARD_ACTION_HIPCHAT_TOKEN"`
-	HipchatRoomID     string   `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
-	HipchatBaseURL    string   `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
+	CassandraHosts             []string `env:"K8GUARD_ACTION_CASSANDRA_HOSTS" envSeparator:","`
+	CassandraKeyspace          string   `env:"K8GUARD_ACTION_CASSANDRA_KEYSPACE"`
+	CassandraUsername          string   `env:"K8GUARD_ACTION_CASSANDRA_USERNAME"`
+	CassandraPassword          string   `env:"K8GUARD_ACTION_CASSANDRA_PASSWORD"`
+	CassandraCaPath            string   `env:"K8GUARD_ACTION_CASSANDRA_CAPATH"`
+	CassandraSslHostValidation bool     `env:"K8GUARD_ACTION_CASSANDRA_SSL_HOST_VALIDATION" envDefault:"true"`
+	HipchatToken               string   `env:"K8GUARD_ACTION_HIPCHAT_TOKEN"`
+	HipchatRoomID              string   `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
+	HipchatBaseURL             string   `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
 	//Tag the Namespace owner in hipchat
 	HipchatTagNamespaceOwner bool `env:"K8GUARD_ACTION_HIPCHAT_TAG_NAMESPACE_OWNER"`
 
