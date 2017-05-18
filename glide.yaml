@@ -16,7 +16,7 @@ import:
   repo: https://github.com/caarlos0/env.git
   vcs: git
 
-- package: github.com/Sirupsen/logrus
+- package: github.com/sirupsen/logrus
   version: v0.11.2
 - package: github.com/Shopify/sarama
   version: ~1.11.0

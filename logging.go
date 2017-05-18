@@ -1,7 +1,7 @@
 package k8guardlibs
 
 import (
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 )
 
 var Log *logrus.Logger

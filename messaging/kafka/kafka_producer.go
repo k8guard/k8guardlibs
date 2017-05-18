@@ -3,7 +3,7 @@ package kafka
 import (
 	"encoding/json"
 	"github.com/Shopify/sarama"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"time"
 	"github.com/k8guard/k8guardlibs/config"
 
