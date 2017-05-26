@@ -1,5 +1,5 @@
-hash: ea8f228a683a62cac82ed6b94d90cfec6b17e46ea5b4c28a4ef971265a7e7444
-updated: 2017-05-18T16:17:09.318694682-05:00
+hash: d06411e472a3915c75ceb3900494b07ee454647e2e518345156221aa216e4564
+updated: 2017-05-25T18:06:18.77592097-05:00
 imports:
 - name: cloud.google.com/go
   version: 3b1ae45394a234c385be014e9a488f2bb6eef821
@@ -58,6 +58,8 @@ imports:
   version: 6aced65f8501fe1217321abf0749d354824ba2ff
 - name: github.com/go-openapi/swag
   version: 1d0bd113de87027671077d3c71eb3ac5d7dbba72
+- name: github.com/gocql/gocql
+  version: 1f874493e9e5aebe46b312593cbd9cb5d3946eda
 - name: github.com/gogo/protobuf
   version: e18d7aa8f8c624c915db340349aad4c49b10d173
   subpackages:
@@ -90,7 +92,7 @@ imports:
 - name: github.com/pborman/uuid
   version: ca53cad383cad2479bbba7f7a1a05797ec1386e4
 - name: github.com/pierrec/lz4
-  version: 88df27974e3644957507a1ca1866edc8e98d4897
+  version: 5a3d2245f97fc249850e7802e3c01fad02a1c316
 - name: github.com/pierrec/xxHash
   version: 5a004441f897722c627870a981d02b29924215fa
   subpackages:
