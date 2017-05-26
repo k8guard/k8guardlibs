@@ -34,11 +34,12 @@ type Config struct {
 	CassandraPassword          string   `env:"K8GUARD_ACTION_CASSANDRA_PASSWORD"`
 	CassandraCaPath            string   `env:"K8GUARD_ACTION_CASSANDRA_CAPATH"`
 	CassandraSslHostValidation bool     `env:"K8GUARD_ACTION_CASSANDRA_SSL_HOST_VALIDATION" envDefault:"true"`
-	CassandraCreateKeyspace bool     `env:"K8GUARD_CASSANDRA_CREATE_KEYSPACE" envDefault:"true"`
+	CassandraCreateKeyspace    bool     `env:"K8GUARD_CASSANDRA_CREATE_KEYSPACE" envDefault:"true"`
+	CassandraCreateTables      bool     `env:"K8GUARD_CASSANDRA_CREATE_TABLES" envDefault:"true"`
 
-	HipchatToken               string   `env:"K8GUARD_ACTION_HIPCHAT_TOKEN"`
-	HipchatRoomID              string   `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
-	HipchatBaseURL             string   `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
+	HipchatToken   string `env:"K8GUARD_ACTION_HIPCHAT_TOKEN"`
+	HipchatRoomID  string `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
+	HipchatBaseURL string `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
 	//Tag the Namespace owner in hipchat
 	HipchatTagNamespaceOwner bool `env:"K8GUARD_ACTION_HIPCHAT_TAG_NAMESPACE_OWNER"`
 
