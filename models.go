@@ -17,6 +17,11 @@ type ViolatableEntity struct {
 	Violations []violations.Violation
 }
 
+type Namespace struct {
+	ViolatableEntity
+}
+
+
 type Ingress struct {
 	ViolatableEntity
 }
