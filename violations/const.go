@@ -3,6 +3,9 @@ package violations
 type ViolationType string
 
 const (
+	// Namespace
+	NO_OWNER_ANNOTATION_TYPE ViolationType = "NO_OWNER_ANNOTATION"
+
 	// Deployment
 	SINGLE_REPLICA_TYPE ViolationType = "SINGLE_REPLICA"
 	// IMAGES

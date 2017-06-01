@@ -3,6 +3,7 @@ package kafka
 type MessageType string
 
 const (
+	NAMESPACE_MESSAGE MessageType = "namespace"
 	POD_MESSAGE MessageType = "pod"
 	DEPLOYMENT_MESSAGE MessageType = "deployment"
 	INGRESS_MESSAGE MessageType = "ingress"

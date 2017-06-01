@@ -43,6 +43,10 @@ type Config struct {
 	//Tag the Namespace owner in hipchat
 	HipchatTagNamespaceOwner bool `env:"K8GUARD_ACTION_HIPCHAT_TAG_NAMESPACE_OWNER"`
 
+	// The format for the field in which to expect chat ids for namespace owners.
+	AnnotationFormatForChatIds string `env:"K8GUARD_ACTION_ANNOTATION_FORMAT_FOR_CHAT_IDS" envSeparator:"," envDefault:"team/hipchat-ids"`
+	AnnotationFormatForEmails  string `env:"K8GUARD_ACTION_ANNOTATION_FORMAT_FOR_EMAILS" envSeparator:"," envDefault:"team/email-ids"`
+
 	DurationBetweenChatNotifications time.Duration `env:"K8GUARD_ACTION_DURATION_BETWEEN_CHAT_NOTIFICATIONS"`
 	DurationBetweenNotifyingAgain    time.Duration `env:"K8GUARD_ACTION_DURATION_BETWEEN_NOTIFYING_AGAIN"`
 	// This means after this duration without any new violation, we expect the violation to either be fixed or hard action to be done on it.
