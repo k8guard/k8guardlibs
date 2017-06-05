@@ -63,6 +63,8 @@ type Config struct {
 	SmtpSendFrom             string `env:"K8GUARD_ACTION_SMTP_SEND_FROM"`
 	// Email to send to if namespaces doesn't have an emails annotation
 	SmtpFallbackSendTo string `env:"K8GUARD_ACTION_SMTP_FALLBACK_SEND_TO"`
-	//Email the namespace owner, if false email fallback
+	// Email the namespace owner, if false email fallback
 	SmtpSendToNamespaceOwner bool `env:"K8GUARD_ACTION_SMTP_SEND_TO_NAMESAPCE_OWNER"`
+	// Optional footer for emails, e.g. to include links to more information
+	ViolationEmailFooter string `env:"K8GUARD_ACTION_VIOLATION_EMAIL_FOOTER"`
 }
