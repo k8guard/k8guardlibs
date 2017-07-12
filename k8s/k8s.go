@@ -11,6 +11,7 @@ func LoadClientset() (*kubernetes.Clientset, error) {
 	configFilePath := "/root/.kube/config"
 
 	if _, err := os.Stat("/root/.kube/config"); os.IsNotExist(err) {
+		// Uses inCluster config when set empty string
 		configFilePath = ""
 	}
 
