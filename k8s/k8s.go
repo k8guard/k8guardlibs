@@ -3,15 +3,16 @@ package k8s
 import (
 	"errors"
 	"k8s.io/client-go/kubernetes"
-	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/client-go/rest"
 )
 
 
 func LoadClientset() (kubernetes.Clientset, error) {
-	loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
-	configOverrides := &clientcmd.ConfigOverrides{}
-	kubeConfig := clientcmd.NewNonInteractiveDeferredLoadingClientConfig(loadingRules, configOverrides)
-	config, err := kubeConfig.ClientConfig()
+	//loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
+	//configOverrides := &clientcmd.ConfigOverrides{}
+	//kubeConfig := clientcmd.NewNonInteractiveDeferredLoadingClientConfig(loadingRules, configOverrides)
+	//config, err := kubeConfig.ClientConfig()
+	config, err := rest.InClusterConfig()
 	if err != nil {
 		return kubernetes.Clientset{}, errors.New("Failed loading client config")
 	}
