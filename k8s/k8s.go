@@ -1,25 +1,20 @@
 package k8s
 
 import (
-	"errors"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 )
 
 
-func LoadClientset() (kubernetes.Clientset, error) {
-	//loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
-	//configOverrides := &clientcmd.ConfigOverrides{}
-	//kubeConfig := clientcmd.NewNonInteractiveDeferredLoadingClientConfig(loadingRules, configOverrides)
-	//config, err := kubeConfig.ClientConfig()
+func LoadClientset() (*kubernetes.Clientset, error) {
 	config, err := rest.InClusterConfig()
 	if err != nil {
-		return kubernetes.Clientset{}, errors.New("Failed loading client config")
+		return &kubernetes.Clientset{}, err
 	}
 	clientset, err := kubernetes.NewForConfig(config)
 	if err != nil {
-		return kubernetes.Clientset{}, errors.New("Failed getting clientset")
+		return &kubernetes.Clientset{}, err
 	}
-	return *clientset, nil
+	return clientset, nil
 }
 
