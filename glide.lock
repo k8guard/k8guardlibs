@@ -1,5 +1,5 @@
-hash: 3eaa477eb4ee21826b2f77b2a560b3b608c1068357529897ba208a4ffa29457c
-updated: 2017-07-11T13:59:17.127014894-05:00
+hash: 79a8c15092f1b35f5e5500de0fba16c5a51f4a7a44ea92ff8504ca39fd0e109a
+updated: 2017-07-12T11:23:21.003378544-05:00
 imports:
 - name: github.com/caarlos0/env
   version: 9474f19b515f52326c7d197d2d097caa7fc7485e
@@ -15,7 +15,7 @@ imports:
   - digest
   - reference
 - name: github.com/eapache/go-resiliency
-  version: b86b1ec0dd4209a588dc1285cdd471e73525c0b3
+  version: b1fe83b5b03f624450823b751b662259ffc6af70
   subpackages:
   - breaker
 - name: github.com/eapache/go-xerial-snappy
@@ -50,14 +50,10 @@ imports:
   version: 553a641470496b2327abcac10b36396bd98e45c9
 - name: github.com/google/gofuzz
   version: 44d81051d367757e1c7c6a5a86423ece9afcf63c
-- name: github.com/howeyc/gopass
-  version: 3ca23474a7c7203e0a0a070fd33508f6efdb9b3d
-- name: github.com/imdario/mergo
-  version: 6633656539c1639d9d78127b7d47c622b5d7b6dc
 - name: github.com/juju/ratelimit
   version: 77ed1c8a01217656d2080ad51981f6e99adaa177
 - name: github.com/klauspost/crc32
-  version: 1bab8b35b6bb565f92cbc97939610af9369f942a
+  version: bab58d77464aa9cf4e84200c3276da0831fe0c03
 - name: github.com/mailru/easyjson
   version: d5b7844b561a7bc640052f1b935f7b800330d7e0
   subpackages:
@@ -88,10 +84,6 @@ imports:
   version: ded73eae5db7e7a0ef6f55aace87a2873c5d2b74
   subpackages:
   - codec
-- name: golang.org/x/crypto
-  version: d172538b2cfce0c13cee31e647d0367aa8cd2486
-  subpackages:
-  - ssh/terminal
 - name: golang.org/x/net
   version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
   subpackages:
@@ -123,7 +115,7 @@ imports:
 - name: gopkg.in/yaml.v2
   version: 53feefa2559fb8dfa8d81baad31be332c97d6c77
 - name: k8s.io/apimachinery
-  version: 75b8dd260ef0469d96d578705a87cffd0e09dab8
+  version: 85ace5365f33b16fc735c866a12e3c765b9700f2
   subpackages:
   - pkg/api/equality
   - pkg/api/errors
@@ -170,7 +162,7 @@ imports:
   - third_party/forked/golang/json
   - third_party/forked/golang/reflect
 - name: k8s.io/client-go
-  version: 3627aeb7d4f6ade38f995d2c923e459146493c7e
+  version: 21300e3e11c918b8e6a70fb7293b310683d6c046
   subpackages:
   - discovery
   - kubernetes
@@ -240,16 +232,12 @@ imports:
   - pkg/version
   - rest
   - rest/watch
-  - tools/auth
   - tools/clientcmd
   - tools/clientcmd/api
-  - tools/clientcmd/api/latest
-  - tools/clientcmd/api/v1
   - tools/metrics
   - transport
   - util/cert
   - util/clock
   - util/flowcontrol
-  - util/homedir
   - util/integer
 testImports: []
