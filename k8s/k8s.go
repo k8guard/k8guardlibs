@@ -1,24 +1,28 @@
 package k8s
 
 import (
-	"errors"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
+	"os"
 )
 
+func LoadClientset() (*kubernetes.Clientset, error) {
 
-func LoadClientset() (kubernetes.Clientset, error) {
-	loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
-	configOverrides := &clientcmd.ConfigOverrides{}
-	kubeConfig := clientcmd.NewNonInteractiveDeferredLoadingClientConfig(loadingRules, configOverrides)
-	config, err := kubeConfig.ClientConfig()
+	configFilePath := "/root/.kube/config"
+
+	if _, err := os.Stat("/root/.kube/config"); os.IsNotExist(err) {
+		// Uses inCluster config when set empty string
+		configFilePath = ""
+	}
+
+	config, err := clientcmd.BuildConfigFromFlags("", configFilePath)
+
 	if err != nil {
-		return kubernetes.Clientset{}, errors.New("Failed loading client config")
+		return &kubernetes.Clientset{}, err
 	}
 	clientset, err := kubernetes.NewForConfig(config)
 	if err != nil {
-		return kubernetes.Clientset{}, errors.New("Failed getting clientset")
+		return &kubernetes.Clientset{}, err
 	}
-	return *clientset, nil
+	return clientset, nil
 }
-
