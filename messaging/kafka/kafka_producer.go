@@ -3,9 +3,9 @@ package kafka
 import (
 	"encoding/json"
 	"github.com/Shopify/sarama"
+	"github.com/k8guard/k8guardlibs/config"
 	log "github.com/sirupsen/logrus"
 	"time"
-	"github.com/k8guard/k8guardlibs/config"
 
 	"strconv"
 )
@@ -36,9 +36,9 @@ func NewProducer(clientId ClientID, Cfg config.Config) (KafkaProducer, error) {
 func (producer *kafkaProducer) SendMessage(topic string, bytes []byte) error {
 	strTime := strconv.Itoa(int(time.Now().Unix()))
 	msg := &sarama.ProducerMessage{
-		Topic:     topic,
-		Key:	   sarama.StringEncoder(strTime),
-		Value:     sarama.ByteEncoder(bytes),
+		Topic: topic,
+		Key:   sarama.StringEncoder(strTime),
+		Value: sarama.ByteEncoder(bytes),
 	}
 	_, _, err := producer.producer.SendMessage(msg)
 	return err
@@ -54,7 +54,7 @@ func (producer *kafkaProducer) SendData(topic string, kind MessageType, message 
 		log.WithError(err).Error("Error Marshaling Kafka Data Message")
 		return err
 	}
-	return  producer.SendMessage(topic, bytes)
+	return producer.SendMessage(topic, bytes)
 }
 
 func (producer *kafkaProducer) Close() {

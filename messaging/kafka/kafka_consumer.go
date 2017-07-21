@@ -1,8 +1,8 @@
 package kafka
 
 import (
-	"github.com/k8guard/k8guardlibs/config"
 	"github.com/Shopify/sarama"
+	"github.com/k8guard/k8guardlibs/config"
 )
 
 func NewConsumer(clientId ClientID, Cfg config.Config) (sarama.Consumer, error) {

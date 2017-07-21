@@ -21,7 +21,6 @@ type Namespace struct {
 	ViolatableEntity
 }
 
-
 type Ingress struct {
 	ViolatableEntity
 }
