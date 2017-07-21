@@ -6,7 +6,6 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 )
 
-
 func LoadClientset() (kubernetes.Clientset, error) {
 	loadingRules := clientcmd.NewDefaultClientConfigLoadingRules()
 	configOverrides := &clientcmd.ConfigOverrides{}
@@ -21,4 +20,3 @@ func LoadClientset() (kubernetes.Clientset, error) {
 	}
 	return *clientset, nil
 }
-
