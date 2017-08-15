@@ -18,7 +18,7 @@ type Config struct {
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
-	RequiredPodAnnotations  []string `env:"REQUIRED_POD_ANNOTATIONS" envSeparator:"," `
+	RequiredPodAnnotations  []string `env:"K8GUARD_POD_REQUIRED_ANNOTATIONS" envSeparator:"," `
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
 	MemCachedHostname string   `env:"K8GUARD_MEMCACHED_HOSTNAME"`
 	LogLevel          string   `env:"K8GUARD_LOG_LEVEL"`
