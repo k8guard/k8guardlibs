@@ -8,6 +8,7 @@ type Config struct {
 	IgnoredNamespaces       []string `env:"K8GUARD_IGNORE_NAMESPACES" envSeparator:","`
 	IgnoredPodsPrefix       []string `env:"K8GUARD_IGNORE_PODS_PREFIX" envSeparator:","`
 	IgnoredDeployments      []string `env:"K8GUARD_IGNORE_DEPLOYMENTS" envSeparator:","`
+	IgnoredDaemonSets       []string `env:"K8GUARD_IGNORE_DAEMONSETS" envSeparator:","`
 	IgnoredJobs             []string `env:"K8GUARD_IGNORE_JOBS" envSeparator:","`
 	IgnoredCronJobs         []string `env:"K8GUARD_IGNORE_CRONJOBS" envSeparator:","`
 	ApprovedImageRepos      []string `env:"K8GUARD_APPROVED_IMAGE_REPOS" envSeparator:","`
