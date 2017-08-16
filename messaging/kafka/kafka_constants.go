@@ -6,6 +6,7 @@ const (
 	NAMESPACE_MESSAGE  MessageType = "namespace"
 	POD_MESSAGE        MessageType = "pod"
 	DEPLOYMENT_MESSAGE MessageType = "deployment"
+	DAEMONSET_MESSAGE  MessageType = "daemonset"
 	INGRESS_MESSAGE    MessageType = "ingress"
 	JOB_MESSAGE        MessageType = "job"
 	CRONJOB_MESSAGE    MessageType = "cronjob"
