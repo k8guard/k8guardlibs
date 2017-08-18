@@ -3,7 +3,11 @@ package violations
 type ViolationType string
 
 const (
-	REQUIRED_ENTITIES_TYPE ViolationType = "REQUIRED_ENTITIES"
+	// special case - these are what are defined in config, but then the more specialized version
+	//  (e.g. REQUIRED_NAMESPACES) would be the violation that is raised and actioned
+	REQUIRED_ENTITIES_TYPE    ViolationType = "REQUIRED_ENTITIES"
+	REQUIRED_ANNOTATIONS_TYPE ViolationType = "REQUIRED_ANNOTATIONS"
+	REQUIRED_LABELS_TYPE      ViolationType = "REQUIRED_LABELS"
 
 	// Namespace
 	NO_OWNER_ANNOTATION_TYPE            ViolationType = "NO_OWNER_ANNOTATION"
