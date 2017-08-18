@@ -3,6 +3,8 @@ package violations
 type ViolationType string
 
 const (
+	REQUIRED_ENTITIES_TYPE ViolationType = "REQUIRED_ENTITIES"
+
 	// Namespace
 	NO_OWNER_ANNOTATION_TYPE            ViolationType = "NO_OWNER_ANNOTATION"
 	REQUIRED_NAMESPACES_TYPE            ViolationType = "REQUIRED_NAMESPACES"

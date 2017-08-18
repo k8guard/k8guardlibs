@@ -20,21 +20,9 @@ type Config struct {
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
 
-	RequiredPods           []string `env:"K8GUARD_REQUIRED_PODS" envSeparator:"," `
-	RequiredPodAnnotations []string `env:"K8GUARD_REQUIRED_POD_ANNOTATIONS" envSeparator:"," `
-	RequiredPodLabels      []string `env:"K8GUARD_REQUIRED_POD_LABELS" envSeparator:"," `
-
-	RequiredDeployments           []string `env:"K8GUARD_REQUIRED_DEPLOYMENTS" envSeparator:"," `
-	RequiredDeploymentAnnotations []string `env:"K8GUARD_REQUIRED_DEPLOYMENT_ANNOTATIONS" envSeparator:"," `
-	RequiredDeploymentLabels      []string `env:"K8GUARD_REQUIRED_DEPLOYMENT_LABELS" envSeparator:"," `
-
-	RequiredNamespaces           []string `env:"K8GUARD_REQUIRED_NAMESPACES" envSeparator:"," `
-	RequiredNamespaceAnnotations []string `env:"K8GUARD_REQUIRED_NAMESPACE_ANNOTATIONS" envSeparator:"," `
-	RequiredNamespaceLabels      []string `env:"K8GUARD_REQUIRED_NAMESPACE_LABELS" envSeparator:"," `
-
-	RequiredDaemonSets            []string `env:"K8GUARD_REQUIRED_DAEMONSETS" envSeparator:"," `
-	RequiredDaemonSetsAnnotations []string `env:"K8GUARD_REQUIRED_DAEMONSET_ANNOTATIONS" envSeparator:"," `
-	RequiredDaemonSetsLabels      []string `env:"K8GUARD_REQUIRED_DAEMONSET_LABELS" envSeparator:"," `
+	RequiredEntities    []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
+	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
+	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
 
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
 	MemCachedHostname string   `env:"K8GUARD_MEMCACHED_HOSTNAME"`
