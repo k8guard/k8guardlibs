@@ -8,6 +8,7 @@ type Config struct {
 	IgnoredNamespaces       []string `env:"K8GUARD_IGNORE_NAMESPACES" envSeparator:","`
 	IgnoredPodsPrefix       []string `env:"K8GUARD_IGNORE_PODS_PREFIX" envSeparator:","`
 	IgnoredDeployments      []string `env:"K8GUARD_IGNORE_DEPLOYMENTS" envSeparator:","`
+	IgnoredDaemonSets       []string `env:"K8GUARD_IGNORE_DAEMONSETS" envSeparator:","`
 	IgnoredJobs             []string `env:"K8GUARD_IGNORE_JOBS" envSeparator:","`
 	IgnoredCronJobs         []string `env:"K8GUARD_IGNORE_CRONJOBS" envSeparator:","`
 	ApprovedImageRepos      []string `env:"K8GUARD_APPROVED_IMAGE_REPOS" envSeparator:","`
@@ -17,6 +18,12 @@ type Config struct {
 	ApprovedImageSize       int64    `env:"K8GUARD_APPROVED_IMAGE_SIZE"`
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
+	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
+
+	RequiredEntities    []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
+	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
+	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
+
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
 	MemCachedHostname string   `env:"K8GUARD_MEMCACHED_HOSTNAME"`
 	LogLevel          string   `env:"K8GUARD_LOG_LEVEL"`
