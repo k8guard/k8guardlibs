@@ -1,5 +1,5 @@
 hash: 79a8c15092f1b35f5e5500de0fba16c5a51f4a7a44ea92ff8504ca39fd0e109a
-updated: 2017-07-12T15:50:35.529960019-05:00
+updated: 2017-08-14T14:52:45.285274043-07:00
 imports:
 - name: github.com/caarlos0/env
   version: 9474f19b515f52326c7d197d2d097caa7fc7485e
@@ -67,7 +67,7 @@ imports:
 - name: github.com/pierrec/lz4
   version: 5a3d2245f97fc249850e7802e3c01fad02a1c316
 - name: github.com/pierrec/xxHash
-  version: 5a004441f897722c627870a981d02b29924215fa
+  version: a0006b13c722f7f12368c00a3d3c2ae8a999a0c6
   subpackages:
   - xxHash32
 - name: github.com/prometheus/client_golang
