@@ -59,7 +59,9 @@ type Config struct {
 	// This means after this duration without any new violation, we expect the violation to either be fixed or hard action to be done on it.
 	DurationViolationExpires time.Duration `env:"K8GUARD_ACTION_DURATION_VIOLATION_EXPIRES"`
 	// Parse messages from kafka and dont do anything
-	ActionDryRun bool `env:"K8GUARD_ACTION_DRY_RUN"`
+	ActionDryRun    bool   `env:"K8GUARD_ACTION_DRY_RUN"`
+	MessagingSystem string `env:"K8QUARD_MESSAGING_SYSTEM" envDefault:"KAFKA"`
+
 	// Parse messages, Notify but don't do any hard action such as scaling down or delete.
 	ActionSafeMode           bool   `env:"K8GUARD_ACTION_SAFE_MODE"`
 	WarningCountBeforeAction int    `env:"K8GUARD_ACTION_WARNING_COUNT_BEFORE_ACTION"`
