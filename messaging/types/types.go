@@ -1,7 +1,5 @@
 package types
 
-import "github.com/k8guard/k8guardlibs/messaging/types"
-
 type ClientID string
 
 type MessageType string
@@ -24,12 +22,12 @@ const (
 	TEST_MESSAGE       MessageType = "test"
 
 	// client ids
-	ACTION_CLIENTID   types.ClientID = "k8guard-action-broker-client"
-	DISCOVER_CLIENTID types.ClientID = "k8guard-discover-broker-client"
+	ACTION_CLIENTID   ClientID = "k8guard-action-broker-client"
+	DISCOVER_CLIENTID ClientID = "k8guard-discover-broker-client"
 
 	// Event consumer feature will be implemented in the future.
-	EVENT_CONSUMER_CLIENTID types.ClientID = "k8guard-event-consumer-broker-client"
-	EVENT_PARSER_CLIENTID   types.ClientID = "k8guard-event-parser-broker-client"
+	EVENT_CONSUMER_CLIENTID ClientID = "k8guard-event-consumer-broker-client"
+	EVENT_PARSER_CLIENTID   ClientID = "k8guard-event-parser-broker-client"
 )
 
 type MessageProducer interface {
