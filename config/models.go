@@ -34,6 +34,9 @@ type Config struct {
 	KafkaActionTopic  string   `env:"K8GUARD_KAFKA_ACTION_TOPIC"`
 	KafkaEventTopic   string   `env:"K8GUARD_KAFKA_EVENT_TOPIC"`
 
+	RmqActionTopic string `env:"K8GUARD_RMQ_ACTION_TOPIC"`
+	RmqEventTopic  string `env:"K8GUARD_RMQ_EVENT_TOPIC"`
+
 	// Action Specific Configs
 	CassandraHosts             []string `env:"K8GUARD_ACTION_CASSANDRA_HOSTS" envSeparator:","`
 	CassandraKeyspace          string   `env:"K8GUARD_ACTION_CASSANDRA_KEYSPACE"`

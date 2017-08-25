@@ -15,8 +15,9 @@ type rmqProducer struct {
 }
 
 func NewProducer(clientId types.ClientID, Cfg config.Config) (types.MessageProducer, error) {
-	connection := rmq.OpenConnection("my service", "tcp", "localhost:6379", 1)
-	queue := connection.OpenQueue("my queue")
+	topic := libs.Cfg.RmqActionTopic
+	connection := rmq.OpenConnection("redis", "tcp", "redis:6379", 1)
+	queue := connection.OpenQueue(topic)
 
 	return &rmqProducer{producer: queue}, nil
 }
