@@ -24,6 +24,8 @@ type Config struct {
 	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
 	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
 
+	CacheType string `env:"K8GUARD_CACHE_TYPE" envDefault:"MEMCACHED"`
+
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
 	MemCachedHostname string `env:"K8GUARD_MEMCACHED_HOSTNAME"`
 	LogLevel          string `env:"K8GUARD_LOG_LEVEL"`
