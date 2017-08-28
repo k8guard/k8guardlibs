@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/adjust/rmq"
+	libs "github.com/k8guard/k8guardlibs"
 	"github.com/k8guard/k8guardlibs/config"
 	"github.com/k8guard/k8guardlibs/messaging/types"
 	log "github.com/sirupsen/logrus"
@@ -14,9 +15,10 @@ type rmqProducer struct {
 	producer rmq.Queue
 }
 
-func NewProducer(clientId types.ClientID, Cfg config.Config) (types.MessageProducer, error) {
+func NewProducer(clientID types.ClientID, Cfg config.Config) (types.MessageProducer, error) {
 	topic := libs.Cfg.RmqActionTopic
-	connection := rmq.OpenConnection("redis", "tcp", "redis:6379", 1)
+	broker := libs.Cfg.RmqBroker
+	connection := rmq.OpenConnection("redis", "tcp", broker, 1)
 	queue := connection.OpenQueue(topic)
 
 	return &rmqProducer{producer: queue}, nil

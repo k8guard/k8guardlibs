@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/adjust/rmq"
+	libs "github.com/k8guard/k8guardlibs"
 	"github.com/k8guard/k8guardlibs/config"
 	"github.com/k8guard/k8guardlibs/messaging/types"
 	log "github.com/sirupsen/logrus"
@@ -20,9 +21,10 @@ type rmqConsumer struct {
 	messages chan []byte
 }
 
-func NewConsumer(clientId types.ClientID, Cfg config.Config) (types.MessageConsumer, error) {
+func NewConsumer(clientID types.ClientID, Cfg config.Config) (types.MessageConsumer, error) {
 	topic := libs.Cfg.RmqActionTopic
-	connection := rmq.OpenConnection("redis", "tcp", "redis:6379", 1)
+	broker := libs.Cfg.RmqBroker
+	connection := rmq.OpenConnection("redis", "tcp", broker, 1)
 	queue := connection.OpenQueue(topic)
 	queue.StartConsuming(unackedLimit, 1*time.Second)
 

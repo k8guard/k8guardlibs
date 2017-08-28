@@ -34,6 +34,7 @@ type Config struct {
 	KafkaActionTopic  string   `env:"K8GUARD_KAFKA_ACTION_TOPIC"`
 	KafkaEventTopic   string   `env:"K8GUARD_KAFKA_EVENT_TOPIC"`
 
+	RmqBroker      string `env:"K8GUARD_RMQ_BROKER" envDefault:"redis:6379"`
 	RmqActionTopic string `env:"K8GUARD_RMQ_ACTION_TOPIC"`
 	RmqEventTopic  string `env:"K8GUARD_RMQ_EVENT_TOPIC"`
 
