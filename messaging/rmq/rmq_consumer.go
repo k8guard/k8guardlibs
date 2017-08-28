@@ -1,6 +1,7 @@
 package rmq
 
 import (
+	"encoding/json"
 	"time"
 
 	"github.com/adjust/rmq"
@@ -37,7 +38,25 @@ func (rc *rmqConsumer) ConsumeMessages(messages chan []byte) {
 }
 
 func (rc *rmqConsumer) Consume(delivery rmq.Delivery) {
+	// var message interface{}
+	// if err := json.Unmarshal([]byte(delivery.Payload()), &message); err != nil {
+	// 	// handle error
+	// 	delivery.Reject()
+	// 	return
+	// }
+
+	// bytes, err := json.Marshal(message_data)
+
+	var message map[string]interface{}
+	if err := json.Unmarshal([]byte(delivery.Payload()), &message); err != nil {
+		// handle error
+		delivery.Reject()
+		return
+	}
+	log.Printf("consumed message %v", message)
+
 	rc.messages <- []byte(delivery.Payload())
+	delivery.Ack()
 }
 
 func (rc *rmqConsumer) Close() {
