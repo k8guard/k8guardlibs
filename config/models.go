@@ -25,8 +25,11 @@ type Config struct {
 	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
 
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
-	MemCachedHostname string   `env:"K8GUARD_MEMCACHED_HOSTNAME"`
-	LogLevel          string   `env:"K8GUARD_LOG_LEVEL"`
+	MemCachedHostname string `env:"K8GUARD_MEMCACHED_HOSTNAME"`
+	LogLevel          string `env:"K8GUARD_LOG_LEVEL"`
+
+	MessageBroker string `env:"K8GUARD_MESSAGE_BROKER" envDefault:"KAFKA"`
+
 	KafkaBrokers      []string `env:"K8GUARD_KAFKA_BROKERS" envSeparator:","`
 	KafkaCertFilePath string   `env:"K8GUARD_KAFKA_CERT_FILE_PATH"`
 	KafkaKeyFilePath  string   `env:"K8GUARD_KAFKA_KEY_FILE_PATH"`
@@ -63,8 +66,7 @@ type Config struct {
 	// This means after this duration without any new violation, we expect the violation to either be fixed or hard action to be done on it.
 	DurationViolationExpires time.Duration `env:"K8GUARD_ACTION_DURATION_VIOLATION_EXPIRES"`
 	// Parse messages from kafka and dont do anything
-	ActionDryRun  bool   `env:"K8GUARD_ACTION_DRY_RUN"`
-	MessageBroker string `env:"K8QUARD_MESSAGE_BROKER" envDefault:"KAFKA"`
+	ActionDryRun bool `env:"K8GUARD_ACTION_DRY_RUN"`
 
 	// Parse messages, Notify but don't do any hard action such as scaling down or delete.
 	ActionSafeMode           bool   `env:"K8GUARD_ACTION_SAFE_MODE"`
