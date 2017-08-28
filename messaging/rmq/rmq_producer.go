@@ -7,7 +7,6 @@ import (
 	libs "github.com/k8guard/k8guardlibs"
 	"github.com/k8guard/k8guardlibs/config"
 	"github.com/k8guard/k8guardlibs/messaging/types"
-	log "github.com/sirupsen/logrus"
 )
 
 //implements MessageProducer interface
@@ -29,9 +28,10 @@ func (producer *rmqProducer) SendData(kind types.MessageType, message interface{
 		"kind": kind,
 		"data": message,
 	}
+	libs.Log.Info("Sending %v", message_data)
 	bytes, err := json.Marshal(message_data)
 	if err != nil {
-		log.WithError(err).Error("Error Marshaling Rmq Data Message")
+		libs.Log.WithError(err).Error("Error Marshaling Rmq Data Message")
 		return err
 	}
 	producer.producer.PublishBytes(bytes)
@@ -39,6 +39,6 @@ func (producer *rmqProducer) SendData(kind types.MessageType, message interface{
 }
 
 func (producer *rmqProducer) Close() {
-	log.Info("Closing rmq producer")
+	libs.Log.Info("Closing rmq producer")
 	producer.producer.Close()
 }

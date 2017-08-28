@@ -8,7 +8,6 @@ import (
 	libs "github.com/k8guard/k8guardlibs"
 	"github.com/k8guard/k8guardlibs/config"
 	"github.com/k8guard/k8guardlibs/messaging/types"
-	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -23,6 +22,7 @@ type rmqConsumer struct {
 }
 
 func NewConsumer(clientID types.ClientID, Cfg config.Config) (types.MessageConsumer, error) {
+	libs.Log.Info("Creating new consumer")
 	topic := libs.Cfg.RmqActionTopic
 	broker := libs.Cfg.RmqBroker
 	connection := rmq.OpenConnection("redis", "tcp", broker, 1)
@@ -33,11 +33,15 @@ func NewConsumer(clientID types.ClientID, Cfg config.Config) (types.MessageConsu
 }
 
 func (rc *rmqConsumer) ConsumeMessages(messages chan []byte) {
+	libs.Log.Info("Starting ConsumeMessages")
 	rc.messages = messages
 	rc.consumer.AddConsumer("consumer", rc)
 }
 
 func (rc *rmqConsumer) Consume(delivery rmq.Delivery) {
+
+	libs.Log.Info("Hit Consume")
+
 	// var message interface{}
 	// if err := json.Unmarshal([]byte(delivery.Payload()), &message); err != nil {
 	// 	// handle error
@@ -50,16 +54,17 @@ func (rc *rmqConsumer) Consume(delivery rmq.Delivery) {
 	var message map[string]interface{}
 	if err := json.Unmarshal([]byte(delivery.Payload()), &message); err != nil {
 		// handle error
+		libs.Log.Infof("rejecting: %v", err)
 		delivery.Reject()
 		return
 	}
-	log.Printf("consumed message %v", message)
+	libs.Log.Infof("consumed message %v", message)
 
 	rc.messages <- []byte(delivery.Payload())
 	delivery.Ack()
 }
 
 func (rc *rmqConsumer) Close() {
-	log.Info("Closing rmq consumer")
+	libs.Log.Info("Closing rmq consumer")
 	rc.consumer.Close()
 }
