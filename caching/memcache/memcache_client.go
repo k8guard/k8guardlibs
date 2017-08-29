@@ -24,7 +24,8 @@ func NewCache(cfg config.Config) (types.Cache, error) {
 
 func (cache *memcacheCache) Set(key string, value interface{}, expiration time.Duration) error {
 	exp := int32(expiration) / 1000
-	err := cache.client.Set(&memcache.Item{Key: key, Value: getBytes(value), Expiration: exp})
+	bytes, _ := getBytes(value)
+	err := cache.client.Set(&memcache.Item{Key: key, Value: bytes, Expiration: exp})
 	return err
 }
 
