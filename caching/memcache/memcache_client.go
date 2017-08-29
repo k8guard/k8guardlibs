@@ -30,7 +30,9 @@ func (cache *memcacheCache) Set(key string, value interface{}, expiration time.D
 }
 
 func (cache *memcacheCache) Get(key string) (interface{}, error) {
-	return cache.client.Get(key)
+	item, err := cache.client.Get(key)
+	return item.Value, err
+
 }
 
 func getBytes(key interface{}) ([]byte, error) {
