@@ -6,7 +6,7 @@ type CacheType string
 
 const (
 	// supported caches
-	MEMCACHE_CACHE CacheType = "MEMCACHE"
+	MEMCACHE_CACHE CacheType = "MEMCACHED"
 	REDIS_CACHE    CacheType = "REDIS"
 )
 
