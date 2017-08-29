@@ -28,7 +28,7 @@ func (producer *rmqProducer) SendData(kind types.MessageType, message interface{
 		"kind": kind,
 		"data": message,
 	}
-	libs.Log.Info("Sending %v", message_data)
+	libs.Log.Debug("Sending %v", message_data)
 	bytes, err := json.Marshal(message_data)
 	if err != nil {
 		libs.Log.WithError(err).Error("Error Marshaling Rmq Data Message")
