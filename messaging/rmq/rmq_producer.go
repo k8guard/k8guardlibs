@@ -2,7 +2,6 @@ package rmq
 
 import (
 	"encoding/json"
-	"time"
 
 	"github.com/adjust/rmq"
 	libs "github.com/k8guard/k8guardlibs"
@@ -26,13 +25,13 @@ func NewProducer(clientID types.ClientID, Cfg config.Config) (types.MessageProdu
 	// expose stats
 	initHandler()
 
-	// clean up dead connections
-	cleaner := rmq.NewCleaner(connection)
-	go func() {
-		for _ = range time.Tick(time.Second) {
-			cleaner.Clean()
-		}
-	}()
+	// // clean up dead connections
+	// cleaner := rmq.NewCleaner(connection)
+	// go func() {
+	// 	for _ = range time.Tick(time.Second) {
+	// 		cleaner.Clean()
+	// 	}
+	// }()
 
 	return &rmqProducer{producer: queue}, nil
 }
