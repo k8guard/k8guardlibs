@@ -53,6 +53,5 @@ func (producer *rmqProducer) InitStatsHandler() {
 }
 
 func (producer *rmqProducer) Close() {
-	libs.Log.Info("Closing rmq producer")
-	producer.producer.Close()
+	// don't close the queue!  as it purges and deletes it before the consumer has had chance to read it
 }
