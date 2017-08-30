@@ -26,7 +26,7 @@ func NewConsumer(clientID types.ClientID, Cfg config.Config) (types.MessageConsu
 	topic := libs.Cfg.RmqActionTopic
 	broker := libs.Cfg.RmqBroker
 	// use database 1 for queue
-	connection := rmq.OpenConnection("redis", "tcp", broker, 1)
+	connection := rmq.OpenConnection("k8guard-consumer", "tcp", broker, 1)
 	queue := connection.OpenQueue(topic)
 	queue.StartConsuming(unackedLimit, 1*time.Second)
 
