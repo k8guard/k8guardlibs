@@ -2,6 +2,7 @@ package rmq
 
 import (
 	"encoding/json"
+	"time"
 
 	"github.com/adjust/rmq"
 	libs "github.com/k8guard/k8guardlibs"
@@ -17,9 +18,21 @@ type rmqProducer struct {
 func NewProducer(clientID types.ClientID, Cfg config.Config) (types.MessageProducer, error) {
 	topic := libs.Cfg.RmqActionTopic
 	broker := libs.Cfg.RmqBroker
+
 	// use database 1 for queue
-	connection := rmq.OpenConnection("redis", "tcp", broker, 1)
+	connection := rmq.OpenConnection("k8guard-producer", "tcp", broker, 1)
 	queue := connection.OpenQueue(topic)
+
+	// expose stats
+	initHandler()
+
+	// clean up dead connections
+	cleaner := rmq.NewCleaner(connection)
+	go func() {
+		for _ = range time.Tick(time.Second) {
+			cleaner.Clean()
+		}
+	}()
 
 	return &rmqProducer{producer: queue}, nil
 }
