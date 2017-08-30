@@ -16,7 +16,7 @@ func NewCache(cfg config.Config) (types.Cache, error) {
 	client := redis.NewClient(&redis.Options{
 		Addr:     cfg.RmqBroker,
 		Password: "", // no password set
-		DB:       0,  // use default DB
+		DB:       2,  // use database 2 for cache
 	})
 	_, err := client.Ping().Result()
 	if err != nil {

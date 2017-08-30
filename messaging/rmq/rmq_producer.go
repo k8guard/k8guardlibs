@@ -17,6 +17,7 @@ type rmqProducer struct {
 func NewProducer(clientID types.ClientID, Cfg config.Config) (types.MessageProducer, error) {
 	topic := libs.Cfg.RmqActionTopic
 	broker := libs.Cfg.RmqBroker
+	// use database 1 for queue
 	connection := rmq.OpenConnection("redis", "tcp", broker, 1)
 	queue := connection.OpenQueue(topic)
 
