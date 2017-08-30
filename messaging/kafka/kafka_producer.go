@@ -53,7 +53,7 @@ func (producer *kafkaProducer) SendData(kind types.MessageType, message interfac
 	return producer.sendMessage(lib.Cfg.KafkaActionTopic, bytes)
 }
 
-func (producer *rmqProducer) InitStatsHandler() {
+func (producer *kafkaProducer) InitStatsHandler() {
 	// nothing to do for kafka
 }
 
