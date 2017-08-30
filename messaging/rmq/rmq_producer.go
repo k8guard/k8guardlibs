@@ -23,7 +23,7 @@ func NewProducer(clientID types.ClientID, Cfg config.Config) (types.MessageProdu
 	queue := connection.OpenQueue(topic)
 
 	// expose stats
-	// initHandler()
+	initHandler()
 
 	// // clean up dead connections
 	// cleaner := rmq.NewCleaner(connection)
