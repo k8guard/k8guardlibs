@@ -22,9 +22,6 @@ func NewProducer(clientID types.ClientID, Cfg config.Config) (types.MessageProdu
 	connection := rmq.OpenConnection("k8guard-producer", "tcp", broker, 1)
 	queue := connection.OpenQueue(topic)
 
-	// expose stats
-	initHandler()
-
 	// // clean up dead connections
 	// cleaner := rmq.NewCleaner(connection)
 	// go func() {
@@ -49,6 +46,10 @@ func (producer *rmqProducer) SendData(kind types.MessageType, message interface{
 	}
 	producer.producer.PublishBytes(bytes)
 	return nil
+}
+
+func (producer *rmqProducer) InitStatsHandler() {
+	initStatsHandler()
 }
 
 func (producer *rmqProducer) Close() {

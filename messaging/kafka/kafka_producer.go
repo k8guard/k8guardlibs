@@ -53,6 +53,10 @@ func (producer *kafkaProducer) SendData(kind types.MessageType, message interfac
 	return producer.sendMessage(lib.Cfg.KafkaActionTopic, bytes)
 }
 
+func (producer *rmqProducer) InitStatsHandler() {
+	// nothing to do for kafka
+}
+
 func (producer *kafkaProducer) Close() {
 	log.Info("Closing kafka producer")
 	if err := producer.producer.Close(); err != nil {

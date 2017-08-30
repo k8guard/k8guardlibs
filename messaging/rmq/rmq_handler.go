@@ -9,7 +9,7 @@ import (
 	libs "github.com/k8guard/k8guardlibs"
 )
 
-func initHandler() {
+func initStatsHandler() {
 	broker := libs.Cfg.RmqBroker
 	connection := rmq.OpenConnection("k8guard-handler", "tcp", broker, 1)
 	http.Handle("/rmq", NewHandler(connection))

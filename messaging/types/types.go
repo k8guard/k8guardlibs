@@ -32,6 +32,7 @@ const (
 
 type MessageProducer interface {
 	SendData(kind MessageType, message interface{}) error
+	InitStatsHandler()
 	Close()
 }
 
