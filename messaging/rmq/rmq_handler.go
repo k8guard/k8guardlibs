@@ -5,23 +5,23 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/adjust/rmq"
+	armq "github.com/adjust/rmq"
 	libs "github.com/k8guard/k8guardlibs"
 )
 
 func initStatsHandler() {
 	broker := libs.Cfg.RmqBroker
-	connection := rmq.OpenConnection("k8guard-handler", "tcp", broker, 1)
-	http.Handle("/rmq", NewHandler(connection))
-	fmt.Printf("Handler listening on http://localhost:3002/rmq\n")
+	connection := armq.OpenConnection("k8guard-handler", "tcp", broker, 1)
+	http.Handle("/", NewHandler(connection))
+	fmt.Printf("Handler listening on http://localhost:3002\n")
 	http.ListenAndServe(":3002", nil)
 }
 
 type Handler struct {
-	connection rmq.Connection
+	connection armq.Connection
 }
 
-func NewHandler(connection rmq.Connection) *Handler {
+func NewHandler(connection armq.Connection) *Handler {
 	return &Handler{connection: connection}
 }
 
