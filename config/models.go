@@ -19,7 +19,6 @@ type Config struct {
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
-
 	RequiredEntities    []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
 	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
 	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
