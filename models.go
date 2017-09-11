@@ -29,6 +29,10 @@ type Deployment struct {
 	ViolatableEntity
 }
 
+type DaemonSet struct {
+	ViolatableEntity
+}
+
 type Job struct {
 	ViolatableEntity
 }

@@ -2,12 +2,14 @@ package kafka
 
 import (
 	"encoding/json"
-	"github.com/Shopify/sarama"
-	"github.com/k8guard/k8guardlibs/config"
-	log "github.com/sirupsen/logrus"
+	"strconv"
 	"time"
 
-	"strconv"
+	"github.com/Shopify/sarama"
+	lib "github.com/k8guard/k8guardlibs"
+	"github.com/k8guard/k8guardlibs/config"
+	"github.com/k8guard/k8guardlibs/messaging/types"
+	log "github.com/sirupsen/logrus"
 )
 
 //implements KafkaProducer interface
@@ -15,14 +17,8 @@ type kafkaProducer struct {
 	producer sarama.SyncProducer
 }
 
-type KafkaProducer interface {
-	SendMessage(topic string, bytes []byte) error
-	SendData(topic string, kind MessageType, message interface{}) error
-	Close()
-}
-
-func NewProducer(clientId ClientID, Cfg config.Config) (KafkaProducer, error) {
-	brokers := Cfg.KafkaBrokers
+func NewProducer(clientId types.ClientID, cfg config.Config) (types.MessageProducer, error) {
+	brokers := cfg.KafkaBrokers
 	config := sarama.NewConfig()
 	config.Producer.Retry.Max = 5
 	config.Producer.RequiredAcks = sarama.WaitForAll
@@ -33,7 +29,7 @@ func NewProducer(clientId ClientID, Cfg config.Config) (KafkaProducer, error) {
 	return &kafkaProducer{producer: p}, err
 }
 
-func (producer *kafkaProducer) SendMessage(topic string, bytes []byte) error {
+func (producer *kafkaProducer) sendMessage(topic string, bytes []byte) error {
 	strTime := strconv.Itoa(int(time.Now().Unix()))
 	msg := &sarama.ProducerMessage{
 		Topic: topic,
@@ -44,7 +40,7 @@ func (producer *kafkaProducer) SendMessage(topic string, bytes []byte) error {
 	return err
 }
 
-func (producer *kafkaProducer) SendData(topic string, kind MessageType, message interface{}) error {
+func (producer *kafkaProducer) SendData(kind types.MessageType, message interface{}) error {
 	message_data := map[string]interface{}{
 		"kind": kind,
 		"data": message,
@@ -54,7 +50,7 @@ func (producer *kafkaProducer) SendData(topic string, kind MessageType, message 
 		log.WithError(err).Error("Error Marshaling Kafka Data Message")
 		return err
 	}
-	return producer.SendMessage(topic, bytes)
+	return producer.sendMessage(lib.Cfg.KafkaActionTopic, bytes)
 }
 
 func (producer *kafkaProducer) Close() {

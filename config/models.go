@@ -8,6 +8,7 @@ type Config struct {
 	IgnoredNamespaces       []string `env:"K8GUARD_IGNORE_NAMESPACES" envSeparator:","`
 	IgnoredPodsPrefix       []string `env:"K8GUARD_IGNORE_PODS_PREFIX" envSeparator:","`
 	IgnoredDeployments      []string `env:"K8GUARD_IGNORE_DEPLOYMENTS" envSeparator:","`
+	IgnoredDaemonSets       []string `env:"K8GUARD_IGNORE_DAEMONSETS" envSeparator:","`
 	IgnoredJobs             []string `env:"K8GUARD_IGNORE_JOBS" envSeparator:","`
 	IgnoredCronJobs         []string `env:"K8GUARD_IGNORE_CRONJOBS" envSeparator:","`
 	ApprovedImageRepos      []string `env:"K8GUARD_APPROVED_IMAGE_REPOS" envSeparator:","`
@@ -18,15 +19,28 @@ type Config struct {
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
+	RequiredEntities    []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
+	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
+	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
+
+	CacheType string `env:"K8GUARD_CACHE_TYPE" envDefault:"MEMCACHED"`
+
 	// CacheExpirationSeconds int32 `env:"K8GUARD_CACHE_EXPIRATION_SECONDS"`
-	MemCachedHostname string   `env:"K8GUARD_MEMCACHED_HOSTNAME"`
-	LogLevel          string   `env:"K8GUARD_LOG_LEVEL"`
+	MemCachedHostname string `env:"K8GUARD_MEMCACHED_HOSTNAME"`
+	LogLevel          string `env:"K8GUARD_LOG_LEVEL"`
+
+	MessageBroker string `env:"K8GUARD_MESSAGE_BROKER" envDefault:"KAFKA"`
+
 	KafkaBrokers      []string `env:"K8GUARD_KAFKA_BROKERS" envSeparator:","`
 	KafkaCertFilePath string   `env:"K8GUARD_KAFKA_CERT_FILE_PATH"`
 	KafkaKeyFilePath  string   `env:"K8GUARD_KAFKA_KEY_FILE_PATH"`
 	KafkaKeyPassword  string   `env:"K8GUARD_KAFKA_KEY_PASSWORD"`
 	KafkaActionTopic  string   `env:"K8GUARD_KAFKA_ACTION_TOPIC"`
 	KafkaEventTopic   string   `env:"K8GUARD_KAFKA_EVENT_TOPIC"`
+
+	RmqBroker      string `env:"K8GUARD_RMQ_BROKER" envDefault:"redis:6379"`
+	RmqActionTopic string `env:"K8GUARD_RMQ_ACTION_TOPIC"`
+	RmqEventTopic  string `env:"K8GUARD_RMQ_EVENT_TOPIC"`
 
 	// Action Specific Configs
 	CassandraHosts             []string `env:"K8GUARD_ACTION_CASSANDRA_HOSTS" envSeparator:","`
@@ -54,6 +68,7 @@ type Config struct {
 	DurationViolationExpires time.Duration `env:"K8GUARD_ACTION_DURATION_VIOLATION_EXPIRES"`
 	// Parse messages from kafka and dont do anything
 	ActionDryRun bool `env:"K8GUARD_ACTION_DRY_RUN"`
+
 	// Parse messages, Notify but don't do any hard action such as scaling down or delete.
 	ActionSafeMode           bool   `env:"K8GUARD_ACTION_SAFE_MODE"`
 	WarningCountBeforeAction int    `env:"K8GUARD_ACTION_WARNING_COUNT_BEFORE_ACTION"`
