@@ -1,6 +1,14 @@
-hash: 79a8c15092f1b35f5e5500de0fba16c5a51f4a7a44ea92ff8504ca39fd0e109a
-updated: 2017-08-14T14:52:45.285274043-07:00
+hash: b241178ebb1176e6cfb5e6662778ec5c0829a1a9d7e7c7045764b15584b1e418
+updated: 2017-09-11T22:59:16.406455804-07:00
 imports:
+- name: github.com/adjust/rmq
+  version: 99798ba09475383696d53071bd9885ac41694a7b
+- name: github.com/adjust/uniuri
+  version: 498743145e60c272b71d377c4e456335e4ef7524
+- name: github.com/bradfitz/gomemcache
+  version: 1952afaa557dc08e8e0d89eafab110fb501c1a2b
+  subpackages:
+  - memcache
 - name: github.com/caarlos0/env
   version: 9474f19b515f52326c7d197d2d097caa7fc7485e
   repo: https://github.com/caarlos0/env.git
@@ -37,6 +45,14 @@ imports:
   version: 6aced65f8501fe1217321abf0749d354824ba2ff
 - name: github.com/go-openapi/swag
   version: 1d0bd113de87027671077d3c71eb3ac5d7dbba72
+- name: github.com/go-redis/redis
+  version: fdafb11e5fa5d52d965e12073c8a58468c98ebe2
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
 - name: github.com/gocql/gocql
   version: 1f874493e9e5aebe46b312593cbd9cb5d3946eda
 - name: github.com/gogo/protobuf
@@ -118,8 +134,17 @@ imports:
   - unicode/bidi
   - unicode/norm
   - width
+- name: gopkg.in/bsm/ratelimit.v1
+  version: db14e161995a5177acef654cb0dd785e8ee8bc22
 - name: gopkg.in/inf.v0
   version: 3887ee99ecf07df5b447e9b00d9c0b2adaa9f3e4
+- name: gopkg.in/redis.v3
+  version: b5e368500d0a508ef8f16e9c2d4025a8a46bcc29
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
 - name: gopkg.in/yaml.v2
   version: 53feefa2559fb8dfa8d81baad31be332c97d6c77
 - name: k8s.io/apimachinery

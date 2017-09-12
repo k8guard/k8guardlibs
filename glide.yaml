@@ -11,6 +11,8 @@ import:
   - rest
   - tools/clientcmd
 
+- package: github.com/adjust/rmq
+
 - package: github.com/caarlos0/env
   version: 9474f19b515f52326c7d197d2d097caa7fc7485e
   repo: https://github.com/caarlos0/env.git

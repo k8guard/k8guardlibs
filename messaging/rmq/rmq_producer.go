@@ -54,4 +54,5 @@ func (producer *rmqProducer) InitStatsHandler() {
 
 func (producer *rmqProducer) Close() {
 	// don't close the queue!  as it purges and deletes it before the consumer has had chance to read it
+
 }
