@@ -19,9 +19,9 @@ type Config struct {
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
-	RequiredEntities    []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
-	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
-	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
+	RequiredEntities        []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
+	RequiredAnnotations     []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
+	RequiredLabels          []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
 
 	CacheType string `env:"K8GUARD_CACHE_TYPE" envDefault:"MEMCACHED"`
 
@@ -52,6 +52,7 @@ type Config struct {
 	CassandraCreateKeyspace    bool     `env:"K8GUARD_CASSANDRA_CREATE_KEYSPACE" envDefault:"true"`
 	CassandraCreateTables      bool     `env:"K8GUARD_CASSANDRA_CREATE_TABLES" envDefault:"true"`
 
+	UseHipChat     bool   `env:"K8GUARD_ACTION_USE_HIPCHAT" envDefault:"true"`
 	HipchatToken   string `env:"K8GUARD_ACTION_HIPCHAT_TOKEN"`
 	HipchatRoomID  string `env:"K8GUARD_ACTION_HIPCHAT_ROOM_ID"`
 	HipchatBaseURL string `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
