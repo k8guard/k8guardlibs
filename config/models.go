@@ -19,9 +19,9 @@ type Config struct {
 	OutputPodsToFile        bool     `env:"K8GUARD_OUTPUT_PODS_TO_FILE"`
 	IgnoredViolations       []string `env:"K8GUARD_IGNORED_VIOLATIONS" envSeparator:"," `
 	IncludeAlpha            bool     `env:"K8GUARD_INCLUDE_ALPHA" envDefault:"false"`
-	RequiredEntities    []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
-	RequiredAnnotations []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
-	RequiredLabels      []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
+	RequiredEntities        []string `env:"K8GUARD_REQUIRED_ENTITIES" envSeparator:"," `
+	RequiredAnnotations     []string `env:"K8GUARD_REQUIRED_ANNOTATIONS" envSeparator:"," `
+	RequiredLabels          []string `env:"K8GUARD_REQUIRED_LABELS" envSeparator:"," `
 
 	CacheType string `env:"K8GUARD_CACHE_TYPE" envDefault:"MEMCACHED"`
 
@@ -57,6 +57,9 @@ type Config struct {
 	HipchatBaseURL string `env:"K8GUARD_ACTION_HIPCHAT_BASE_URL"`
 	//Tag the Namespace owner in hipchat
 	HipchatTagNamespaceOwner bool `env:"K8GUARD_ACTION_HIPCHAT_TAG_NAMESPACE_OWNER"`
+
+	SlackToken   string `env:"K8GUARD_ACTION_SLACK_TOKEN"`
+	SlackChannel string `env:"K8GUARD_ACTION_SLACK_CHANNEL"`
 
 	// The format for the field in which to expect chat ids for namespace owners.
 	AnnotationFormatForChatIds string `env:"K8GUARD_ACTION_ANNOTATION_FORMAT_FOR_CHAT_IDS" envSeparator:"," envDefault:"team/hipchat-ids"`
